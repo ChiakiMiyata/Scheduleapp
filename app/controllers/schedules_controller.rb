@@ -9,7 +9,10 @@ class SchedulesController < ApplicationController
   
   def create
     @schedule = Schedule.new(params.require(:schedule).permit(:title, :startdate, :enddate, :allday, :schedulememo))
-    @schedule.save
-    redirect_to root_path
+    if @schedule.save
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 end
