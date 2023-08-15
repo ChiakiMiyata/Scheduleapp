@@ -15,4 +15,27 @@ class SchedulesController < ApplicationController
       render 'new'
     end
   end
+  
+  def show
+    @schedule = Schedule.find(params[:id])
+  end
+  
+  def edit
+    @schedule = Schedule.find(params[:id])
+  end
+  
+  def update
+    @schedule = Schedule.find(params[:id])
+    if @schedule.update(params.require(:schedule).permit(:title, :startdate, :enddate, :allday, :schedulememo))
+      redirect_to root_path
+    else
+      render 'edit'
+    end
+  end
+  
+  def destroy
+    @schedule = Schedule.find(params[:id])
+    @schedule.destroy
+    redirect_to root_path, status: :see_other
+  end
 end
