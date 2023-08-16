@@ -1,0 +1,37 @@
+<h2>予定の新規追加</h2>
+
+<%= render "shared/error", obj: @schedule %>
+
+<%= form_with model: @schedule do |form| %>
+
+ <table>
+   <tr>
+     <th><%= form.label :title ,"タイトル" %></th>
+     <th><%= form.text_field :title %></th>
+   </tr>
+   
+   <tr>
+     <th><%= form.label :startdate ,"開始日" %></th>
+     <th><%= form.date_field :startdate %></th>
+   </tr>
+   
+   <tr>
+     <th><%= form.label :enddate ,"終了日" %></th>
+     <th><%= form.date_field :enddate %></th>
+   </tr>
+   
+   <tr>
+     <th><%= form.label :allday ,"終日" %></th>
+     <th><%= form.check_box :allday, checked:true %></th>
+   </tr>
+   
+   <tr>
+     <th><%= form.label :schedulememo ,"スケジュールメモ" %></th>
+     <th><%= form.text_area :schedulememo %></th>
+   </tr>
+ </table>
+ 
+ <p><%= form.submit "保存" %></p>
+ <p><%= link_to "キャンセル", :schedules %></p>
+
+<% end %>

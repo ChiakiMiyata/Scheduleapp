@@ -1,0 +1,27 @@
+<h2>予定詳細</h2>
+ 
+<table>
+  <tr>
+    <th>タイトル</th>
+    <td><%= @schedule.title %></td>
+  </tr>
+  <tr>
+    <th>開始日</th>
+    <td><%= @schedule.startdate.strftime("%Y/%m/%d") %></td>
+  </tr>
+  <tr>
+    <th>終了日</th>
+    <td><%= @schedule.enddate.strftime("%Y/%m/%d") %></td>
+  </tr>
+  <tr>
+    <th>終日</th>
+    <td><%= convert_boolean_to_character(@schedule.allday) %></td>
+  </tr>
+  <tr>
+    <th>スケジュールメモ</th>
+    <td><%= @schedule.schedulememo %></td>
+  </tr>
+ </table>
+ 
+ <p><%= link_to '編集', edit_schedule_path(@schedule) %></p>
+ <p><%= link_to "予定一覧に戻る", :schedules %></p>
