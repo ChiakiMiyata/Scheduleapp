@@ -10,10 +10,9 @@ class SchedulesController < ApplicationController
   def create
     @schedule = Schedule.new(params.require(:schedule).permit(:title, :startdate, :enddate, :allday, :schedulememo))
     if @schedule.save
-      flash[:notice] = "スケジュールを登録しました"
-      redirect_to root_path
+      redirect_to root_path, notice: 'スケジュールを登録しました'
     else
-      render 'new'
+      render 'new' ,status: :unprocessable_entity
     end
   end
   
@@ -28,9 +27,10 @@ class SchedulesController < ApplicationController
   def update
     @schedule = Schedule.find(params[:id])
     if @schedule.update(params.require(:schedule).permit(:title, :startdate, :enddate, :allday, :schedulememo))
+      flash[:notice] = "スケジュールを更新しました"
       redirect_to root_path
     else
-      render 'edit'
+      render 'edit' ,status: :unprocessable_entity
     end
   end
   

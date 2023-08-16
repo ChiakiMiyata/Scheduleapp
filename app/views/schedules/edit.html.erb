@@ -1,5 +1,7 @@
 <h1>予定を編集してください</h1>
 
+<%= render "shared/error", obj: @schedule %>
+
 <%= form_with model: @schedule do |form| %>
 
  <table>
