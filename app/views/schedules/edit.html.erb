@@ -1,4 +1,4 @@
-<h1>予定を編集してください</h1>
+<h2>予定を編集してください</h2>
 
 <%= render "shared/error", obj: @schedule %>
 
@@ -31,11 +31,7 @@
    </tr>
  </table>
  
- <div>
-   <ul>
-     <li><%= form.submit "保存" %></li>
-     <li><%= link_to "キャンセル", :schedules %></li>
-   </ul>
- </div>
+ <p><%= form.submit "保存" %></p>
+ <p><%= link_to "キャンセル", :schedules %></p>
 
 <% end %>

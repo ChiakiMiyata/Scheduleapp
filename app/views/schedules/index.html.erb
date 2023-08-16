@@ -1,8 +1,6 @@
-<h1>予定一覧</h1>
+<h2>予定一覧</h2>
 
-<% if flash[:notice] %>
   <p class="notice"><%= flash[:notice] %></p>
-<% end %>
 
 <%= link_to '新規追加' ,new_schedule_path %>
 
@@ -35,11 +33,5 @@
   </tbody>
 </table>
 
-<table>
-  <tbody>
-    <tr>
-      <td>予定合計 <%= Schedule.count%> 件</td>
-      <td>本日の日付 <%= I18n.localize(Date.today) %></td>
-    </tr>
-  </tbody>
-</table>
+<p>予定合計 <%= Schedule.count%> 件</p>
+<p>本日の日付 <%= I18n.localize(Date.today) %></p>
